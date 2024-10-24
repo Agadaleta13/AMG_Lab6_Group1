@@ -11,9 +11,9 @@ def main():
             encoded_password = encode(input("Please enter your password to encode: "))
             print("Your password has been encoded and stored!")
             print(encoded_password)
-        #elif menu_selection == "2":
-            #original_password = decode(input("Please enter your password to decode: "))
-            #print(f"The encoded password is {encoded_password}, and the orignal password is {orignal_password}.")
+        elif menu_selection == "2":
+            original_password = decode(input("Please enter your password to decode: "))
+            print(f"The encoded password is {encode(original_password)}, and the orignal password is {original_password}.")
         elif menu_selection == "3":
             exit()
 
@@ -24,6 +24,9 @@ def encode(input_text):
         result.append(temp_digit)
     result_string = "".join(str(num) for num in result)
     return result_string
-
-
+def decode(txt):
+  r = ""
+  for i in txt:
+    r +=  str((int(i) - 3) % 10)
+  return r
 main()
